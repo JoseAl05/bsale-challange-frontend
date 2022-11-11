@@ -1,8 +1,9 @@
+const path = require('path');
+
 module.exports = {
-  mode: "production",
   entry: [
-    "./public/js/index.js",
     "./public/css/tailwind.css",
+    "./public/js/index.js",
     "./src/functions/Search.js",
     "./src/views/Categories.js",
     "./src/views/Dashboard.js",
@@ -30,7 +31,8 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'public','css'),
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
     ],
