@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JS Template</title>
+    <link href="/public/css/tailwind.css" rel="stylesheet" />
+  </head>
+  <body class="m-0 p-0">
+    <nav id="header" class="fixed w-full z-30 top-0 text-white bg-gradient-to-r from-[#080055] to-[#008ab9]">
+      <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-center sm:justify-between mt-0 py-2"
+      >
+        <div class="pl-4 flex items-center">
+          <a
+            href="/"
+            class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl font-thunderLight"
+          >
+            BSALE Challange
+          </a>
+        </div>
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 lg:bg-transparent text-white p-4 lg:p-0 z-20">
+          <ul class="list-reset flex justify-end flex-1 items-center">
+            <li class="mr-3">
+              <a href="/" class="inline-block text-white font-bold transition-all duration-300 ease-in-out hover:text-teal-300 hover:tracking-wide hover:scale-110 py-2 px-4" data-link>
+                Inicio
+              </a>
+            </li>
+            <li class="mr-3">
+              <a href="/productos" class="inline-block text-white font-bold transition-all duration-300 ease-in-out hover:text-teal-300 hover:tracking-wide hover:scale-110 py-2 px-4" data-link>
+                Catalogo de Productos
+              </a>
+            </li>
+            <li class="mr-3">
+              <a href="/categorias" class="inline-block text-white font-bold transition-all duration-300 ease-in-out hover:text-teal-300 hover:tracking-wide hover:scale-110 py-2 px-4" data-link>
+                Categorias
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+    </nav>
+    <div id="app">
+    </div>
+    <script type="module" src="/public/js/index.js"></script>
+    <script type="module" src="/src/functions/Search.js"></script>
+  </body>
+</html>
