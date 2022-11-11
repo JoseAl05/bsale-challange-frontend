@@ -23,11 +23,11 @@ export default class extends Layout {
             <div class="flex justify-around items-center mt-40">
               <div class="flex flex-col">
                 <h1 class="text-xl font-medium">Si no conoce nuestro catalogo, haga click aqui!.</h1>
-                <button class="text-white mt-5 bg-[#006482] p-1 text-lg rounded-lg font-semibold">Catalogo de Productos.</button>
+                <a href="/productos" class="text-white mt-5 bg-[#006482] p-1 text-lg text-center rounded-lg font-semibold transition-all duration-300 ease-in-out hover:scale-105">Catalogo de Productos.</a>
               </div>
               <div class="flex flex-col pl-10">
                 <h1 class="text-xl font-medium">Si prefiere buscar por categorias, haga click aqui!.</h1>
-                <button class="text-white mt-5 bg-[#006482] p-1 text-lg rounded-lg font-semibold">Categorias de nuestros productos.</button>
+                <a href="/categorias" class="text-white mt-5 bg-[#006482] p-1 text-lg text-center rounded-lg font-semibold transition-all duration-300 ease-in-out hover:scale-105">Categorias de nuestros productos.</a>
               </div>
             </div>
             <h1 id="searchedValue" class="text-center text-3xl font-semibold"></h1>
