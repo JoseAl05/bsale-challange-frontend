@@ -13,7 +13,7 @@ module.exports = {
     "./src/views/ProductsResult.js",
   ],
   output: {
-    path: __dirname + "/dist",
+    path: __dirname + "/public" + "/dist",
     publicPath: "/",
     filename: "bundle.js",
   },
