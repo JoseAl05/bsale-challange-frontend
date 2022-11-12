@@ -10,7 +10,6 @@ module.exports = {
     "./src/views/Layout.js",
     "./src/views/Products.js",
     "./src/views/ProductsByCategory.js",
-    "./src/views/ProductsResult.js",
   ],
   output: {
     path: __dirname + "/public" + "/dist",

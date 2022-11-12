@@ -2,7 +2,6 @@ import Dashboard from "../../src/views/Dashboard.js";
 import Products from "../../src/views/Products.js";
 import Categories from "../../src/views/Categories.js";
 import ProductsByCategory from "../../src/views/ProductsByCategory.js";
-import ProductsResult from "../../src/views/ProductsResult.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -30,7 +29,6 @@ const router = async () => {
     { path: "/productos", view: Products },
     { path: "/categorias", view: Categories},
     { path: "/categorias/:name/:id" , view:ProductsByCategory},
-    { path: "/products/:query", view:ProductsResult}
   ];
 
   const matchRoutes = routes.map((route) => {

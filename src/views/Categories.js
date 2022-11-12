@@ -7,27 +7,58 @@ export default class extends Layout {
     this.getCategories = this.getCategories();
   }
 
-  async getCategories(){
-    let categories = [];
-    const response = await fetch(
-      process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/categories'
-      : `https://bsale-challange-server-production.up.railway.app/api/categories`
-    )
-    .then(res => res.json()).then(data => {
-        let categoriesContainer = document.getElementById("categories");
-        const mappedCategories = data.map((cat,index) => {
-            return `<div class="w-full mx-auto" key=${index}>
-                        <a href="/categorias/${cat.name.replace(' ','s-')}s/${cat.id}" type="button" class="block text-center text-white mt-5 bg-[#006482] p-1 text-lg rounded-lg font-semibold w-full transition-all ease-in-out duration-300 hover:scale-110" data-link>${cat.name}</a>
-                    </div>`
-        }).join('');
-        categoriesContainer.innerHTML = mappedCategories;
-    }).catch(error => {
-        console.error(error);
-    })
-    return categories;
+  capitalizeAndPluralizeWord(word) {
+    const hasMoreWords = word.trim().indexOf(" ") !== -1 ? true : false;
+
+    if (hasMoreWords) {
+      const arrayOfWords = word.split(" ");
+      let capitalizedFirstLetterOfWords = "";
+      let words = [];
+      let restOfWords = "";
+      for (let i = 0; i < arrayOfWords.length; i++) {
+        capitalizedFirstLetterOfWords = arrayOfWords[i].charAt(0).toUpperCase();
+        words[i] =
+          capitalizedFirstLetterOfWords + arrayOfWords[i].slice(1) + "s";
+      }
+      return words.toString().replace(",", " ");
+    }
+    const capitalizedFirstLetterOfOneWord = word.charAt(0).toUpperCase();
+    const restOfWord = word.slice(1);
+
+    return capitalizedFirstLetterOfOneWord + restOfWord + "s";
   }
 
+  async getCategories() {
+    let categories = [];
+    const URL =process.env.NODE_ENV === "development"
+        ? "http://localhost:3000/api/categories"
+        : `https://bsale-challange-server-production.up.railway.app/api/categories`;
 
+    const response = await fetch(URL)
+      .then((res) => res.json())
+      .then((data) => {
+        let categoriesContainer = document.getElementById("categories");
+        const mappedCategories = data
+          .map((cat, index) => {
+            return `<div class="w-full mx-auto" key=${index}>
+                        <a href="/categorias/${this.capitalizeAndPluralizeWord(
+                          cat.name
+                        )}/${
+              cat.id
+            }" type="button" class="block text-center text-white mt-5 bg-[#006482] p-1 text-lg rounded-lg font-semibold w-full transition-all ease-in-out duration-300 hover:scale-110" data-link>${this.capitalizeAndPluralizeWord(
+              cat.name
+            )}</a>
+                    </div>`;
+          })
+          .join("");
+        categoriesContainer.innerHTML = mappedCategories;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    return categories;
+  }
 
   async getHtml() {
     return `

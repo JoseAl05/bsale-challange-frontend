@@ -5,23 +5,23 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function submitHandler(event) {
-  let searchValue = document.getElementById("search").value;
   event.preventDefault();
+  let searchValue = document.getElementById("search").value;
   search(searchValue);
 }
 
 async function search(query) {
-
   const titleOfSearchedValues = document.getElementById("searchedValue");
   titleOfSearchedValues.innerHTML = `<h1 class="text-3xl font-semibold mt-20">Resultados de: ${query}</h1>`;
 
   let productSearched = [];
   let productSearchedContaienr = document.getElementById("productSearched");
 
-  const response = await fetch(
-    process.env.NODE_ENV === 'development' ? `http://localhost:3000/api/productsBySearch/${query}`
-    :`https://bsale-challange-server-production.up.railway.app/api/productsBySearch/${query}`
-  )
+  const URL = process.env.NODE_ENV === "development"
+      ? `http://localhost:3000/api/productsBySearch/${query}`
+      : `https://bsale-challange-server-production.up.railway.app/api/productsBySearch/${query}`;
+
+  const response = await fetch(URL)
     .then((res) => res.json())
     .then((data) => {
       const productList = document.getElementById("productSearched");
@@ -57,9 +57,9 @@ async function search(query) {
 
       const mappedProductSearched = data.map((prodSearch, index) => {
         return `
-            <div class="rounded overflow-hidden shadow-xl w-full h-full mx-auto" key=${index}>
+            <div class="rounded overflow-hidden shadow-xl mx-auto" key=${index}>
                 <div class="px-6 py-4">
-                    <img src=${prodSearch.url_image} loading="lazy" class="w-80 h-80 object-contain object-center"/>
+                    <img src="${prodSearch.url_image}" class="w-80 h-80 object-contain object-center" loading="lazy"/>
                         <p class="font-bold text-xl mb-2">
                             ${prodSearch.name}
                         </p>
