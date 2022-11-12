@@ -7,7 +7,7 @@
     "tw:build": "npx tailwindcss -i ./src/css/tailwind.css -o ./public/css/tailwind.css",
     "dev": "npx webpack serve --mode development --open --client-logging info --live-reload",
     "start": "node server.js",
-    "build": "set NODE_ENV=production&&webpack --mode production"
+    "build": "set NODE_ENV=production&&npm run tw:build&&webpack --mode production"
   },
   "author": "Jose Pablo Arancibia Linker",
   "license": "ISC",

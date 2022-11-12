@@ -9,25 +9,30 @@ export default class extends Layout {
 
   async getProducts(){
     let products = [];
-    const response = await fetch('http://localhost:3000/api/products').then(res => res.json()).then(data => {
-        console.log(data);
-        let productsContainer = document.getElementById("products");
-        const mappedProducts = data.map((prod,index) => {
-            console.log(prod);
-            return (`<div class="rounded overflow-hidden shadow-xl w-80 h-full mx-auto" key=${index}>
+    const response = await fetch(
+        process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/products'
+        : `https://bsale-challange-server-production.up.railway.app/api/products`
+    )
+    .then(res => res.json()).then(data => {
+    let productsContainer = document.getElementById("products");
+    const mappedProducts = data.map((prod,index) => {
+        return (`<div class="rounded overflow-hidden shadow-xl w-full h-full mx-auto" key=${index}>
                         <div class="px-6 py-4">
                             <img src=${prod.url_image} loading="lazy" class="w-80 h-80 object-contain object-center"/>
                                 <p class="font-bold text-xl mb-2">
                                     ${prod.name}
                                 </p>
                             <hr>
-                            <p class="text-end text-gray-400 text-lg">
-                                $ ${prod.price}
-                            </p>
+                            <div class="flex justify-between items-center mt-10">
+                                <p class="text-black font-semibold text-xl">
+                                    $ ${prod.price}
+                                </p>
+                                <i class="fa-solid fa-cart-shopping fa-xl  cursor-pointer bg-[#008ab9] rounded-lg p-4 transition-all duration-300 hover:bg-[#00ace6]"></i>
+                            </div>
                         </div>
                     </div>`)
-        }).join('');
-        productsContainer.innerHTML = mappedProducts;
+        });
+        productsContainer.innerHTML = mappedProducts.join("");
     }).catch(error => {
         console.error(error);
     })

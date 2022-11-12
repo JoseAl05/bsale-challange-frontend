@@ -6,12 +6,10 @@ export default class extends Layout {
     this.setTitle("Dashboard");
   }
   async getHtml() {
-    console.log(location.href);
     return (`
             <h1 class="text-4xl text-black text-center mt-36 font-bold">Tienda Online</h1>
             <h2 class="text-3xl text-black text-center mt-28 font-semibold">Busque un producto.</h2>
             <form id="myForm" class="mx-auto w-1/2 mt-10" method="get">
-
                 <div class="relative">
                   <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <svg aria-hidden="true" class="w-5 h-5 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -23,11 +21,11 @@ export default class extends Layout {
             <div class="flex justify-around items-center mt-40">
               <div class="flex flex-col">
                 <h1 class="text-xl font-medium">Si no conoce nuestro catalogo, haga click aqui!.</h1>
-                <a href="/productos" class="text-white mt-5 bg-[#006482] p-1 text-lg text-center rounded-lg font-semibold transition-all duration-300 ease-in-out hover:scale-105">Catalogo de Productos.</a>
+                <a href="/productos" class="text-white mt-5 bg-[#006482] p-1 text-lg text-center rounded-lg font-semibold transition-all duration-300 ease-in-out hover:scale-105" data-link>Catalogo de Productos.</a>
               </div>
               <div class="flex flex-col pl-10">
                 <h1 class="text-xl font-medium">Si prefiere buscar por categorias, haga click aqui!.</h1>
-                <a href="/categorias" class="text-white mt-5 bg-[#006482] p-1 text-lg text-center rounded-lg font-semibold transition-all duration-300 ease-in-out hover:scale-105">Categorias de nuestros productos.</a>
+                <a href="/categorias" class="text-white mt-5 bg-[#006482] p-1 text-lg text-center rounded-lg font-semibold transition-all duration-300 ease-in-out hover:scale-105" data-link>Categorias de nuestros productos.</a>
               </div>
             </div>
             <h1 id="searchedValue" class="text-center text-3xl font-semibold"></h1>

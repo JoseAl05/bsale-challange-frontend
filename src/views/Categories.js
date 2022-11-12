@@ -9,12 +9,15 @@ export default class extends Layout {
 
   async getCategories(){
     let categories = [];
-    const response = await fetch('http://localhost:3000/api/categories').then(res => res.json()).then(data => {
-        console.log(data);
+    const response = await fetch(
+      process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/categories'
+      : `https://bsale-challange-server-production.up.railway.app/api/categories`
+    )
+    .then(res => res.json()).then(data => {
         let categoriesContainer = document.getElementById("categories");
         const mappedCategories = data.map((cat,index) => {
             return `<div class="w-full mx-auto" key=${index}>
-                        <a href="/categorias/${cat.name.replace(' ','s-')}s/${cat.id}" type="button" class="block text-center text-white mt-5 bg-[#006482] p-1 text-lg rounded-lg font-semibold w-full transition-all ease-in-out duration-300 hover:scale-110">${cat.name}</a>
+                        <a href="/categorias/${cat.name.replace(' ','s-')}s/${cat.id}" type="button" class="block text-center text-white mt-5 bg-[#006482] p-1 text-lg rounded-lg font-semibold w-full transition-all ease-in-out duration-300 hover:scale-110" data-link>${cat.name}</a>
                     </div>`
         }).join('');
         categoriesContainer.innerHTML = mappedCategories;
