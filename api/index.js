@@ -7,7 +7,6 @@ const app = express();
 
 app.use("/dist",express.static(path.join(__dirname,"public","dist")));
 app.get('/*', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
   res.sendFile('index.html', {root: path.join(__dirname, 'public')});
 });
 
