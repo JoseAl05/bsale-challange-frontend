@@ -3,7 +3,7 @@ import Layout from "./Layout.js";
 export default class extends Layout {
   constructor() {
     super();
-    this.setTitle("Dashboard");
+    this.setTitle("BSALE Challange");
   }
   async getHtml() {
     return (`

@@ -6,7 +6,7 @@ module.exports = {
     "./public/js/index.js",
     "./src/functions/Search.js",
     "./src/views/Categories.js",
-    "./src/views/Dashboard.js",
+    "./src/views/Main.js",
     "./src/views/Layout.js",
     "./src/views/Products.js",
     "./src/views/ProductsByCategory.js",

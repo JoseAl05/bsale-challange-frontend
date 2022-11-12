@@ -1,4 +1,4 @@
-import Dashboard from "../../src/views/Dashboard.js";
+import Main from "../../src/views/Main.js";
 import Products from "../../src/views/Products.js";
 import Categories from "../../src/views/Categories.js";
 import ProductsByCategory from "../../src/views/ProductsByCategory.js";
@@ -25,7 +25,7 @@ const navigateTo = (url) => {
 
 const router = async () => {
   const routes = [
-    { path: "/", view: Dashboard },
+    { path: "/", view: Main },
     { path: "/productos", view: Products },
     { path: "/categorias", view: Categories},
     { path: "/categorias/:name/:id" , view:ProductsByCategory},
