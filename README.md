@@ -21,6 +21,7 @@ La aplicacion cuenta con 4 modulos:
  - [HTML](https://html.com/)
  - [TailwindCSS](https://tailwindcss.com/)
  - [Javascript](https://www.javascript.com/)
+ - [Express](https://expressjs.com/es/)
  - [Webpack](https://webpack.js.org/)
 
 #### Deploy
